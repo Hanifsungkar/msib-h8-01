@@ -1,19 +1,34 @@
 let data_users_tag = document.getElementById("data_users");
 
-fetch("https://randomuser.me/api/?results=10")
+fetch("https://jsonplaceholder.typicode.com/users")
   .then(response => response.json())
   .then(data => {
-    data.results.forEach(user => {
-      data_users_tag.innerHTML += `
-        <tr>
-          <td><img src="${user.picture.thumbnail}"></td>
-          <td>${user.name.first} ${user.name.last}</td>
-          <td>${user.location.street.name} ${user.location.street.number}</td>
-          <td>${user.email}</td>
-          <td>${user.phone}</td>
-        </tr>`;
+    data.forEach(user => {
+        data_users_tag.innerHTML += `
+          <tr>
+            <td><img src="${user.id}"></td>
+            <td>${user.name}</td>
+            <td>${user.address.city}</td>
+            <td>${user.email}</td>
+            <td>${user.phone}</td>
+          </tr>`;
+      });
     });
-  })
+
+//
+
+
+//     for (let i = 0; i < 10; i++) {
+//       data_users_tag.innerHTML += `
+//              <tr>
+//               <td><img src="${user.id}"></td>
+//               <td>${user.name}</td>
+//               <td>${user.address.city}</td>
+//               <td>${user.email}</td>
+//               <td>${user.phone}</td>
+//             </tr>`;
+// }
+    
 
 // // binding element html yang akan digunakan
 // let data_users_tag = document.getElementById("data_users");
@@ -36,15 +51,7 @@ fetch("https://randomuser.me/api/?results=10")
 //           <td>123456789</td>
 //         </tr>`;
 
-// for (let i = 0; i < 10; i++) {
-//   data_users_tag.innerHTML += `
-//         <tr>
-//           <td>Bar</td>
-//           <td>Jl. Satu</td>
-//           <td>foo@email.com</td>
-//           <td>123456789</td>
-//         </tr>`;
-// }
+
 
 // let i = 0;
 // while(i < 10) {
