@@ -1,20 +1,20 @@
 let data_users_tag = document.getElementById("data_users");
 
-fetch("https://randomuser.me/api/?results=10")
+fetch("https://jsonplaceholder.typicode.com/users")
   .then(response => response.json())
   .then(data => {
-    data.results.forEach(user => {
+    data.forEach(user => {
       data_users_tag.innerHTML += `
         <tr>
           <td>
             <div class="row">
               <div class="col-md-2">
-                <img src="${user.picture.large}" class="img-fluid">
+                ${user.id}
               </div>
               <div class="col-md-10">
-                <h3>${user.name.first} ${user.name.last}</h3>
+                <h3>${user.name}</h3>
                 <p class="text-muted">
-                  ${user.location.street.name} ${user.location.street.number}
+                ${user.address.city}
                   <br>
                   ${user.email}
                   <br>
