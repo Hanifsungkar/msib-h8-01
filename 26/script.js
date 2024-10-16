@@ -6,7 +6,7 @@ fetch("https://jsonplaceholder.typicode.com/users")
     data.forEach(user => {
         data_users_tag.innerHTML += `
           <tr>
-            <td><img src="${user.id}"></td>
+            <td>${user.id}</td>
             <td>${user.name}</td>
             <td>${user.address.city}</td>
             <td>${user.email}</td>
